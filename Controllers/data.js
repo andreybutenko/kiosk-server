@@ -11,7 +11,8 @@ function updateData(user, pass, data, callback) {
                 callback(null, verified);
             }
             else {
-                fs.writeFile('./data/data.txt', JSON.stringify(data), function(err) {
+                var cleanData = data;
+                fs.writeFile('./data/data.txt', cleanData, function(err) {
                     if(err) {
                         callback(err);
                     }

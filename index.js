@@ -26,8 +26,13 @@ app.get('/api/get', function (req, res) {
     });
 });
 
-app.get('/api/update', function (req, res) {
-    console.log(req.body.data);
+app.post('/api/update', function (req, res) {
+    data.updateData(req.body.user, req.body.pass, req.body.data, function(err, saved) {
+        res.send({
+            "err": err,
+            "saved": saved
+        })
+    })
 });
 
-app.listen(3000);
+app.listen(8080);
